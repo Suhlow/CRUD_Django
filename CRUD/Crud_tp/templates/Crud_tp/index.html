@@ -8,18 +8,38 @@
   </div>
   <div class="col-md-1 col-xs-1 col-sm-1"></div>
  </div>
- <div class="row">
-  <div class="col-md-10 col-xs-10 col-sm-10"></div>
-  <div class="col-md-2 col-xs-1 col-sm-1">
-   <br/>
-            <a href="{% url 'post' %}">
-              <button type="button" class="btn btn-success">
-                <span class="glyphicon glyphicon-plus"></span>
-              </button>
-            </a>
-  </div>
- </div>
- <br/>
+
+  {% if user.is_authenticated %}
+    <div class="row">
+     <div class="col-md-10 col-xs-10 col-sm-10">
+      <p> Welcome <bold> {{ user.get_username }} </bold> ! </br>
+           => CREATE A POST : Feel free to add new fabulous posts by clicking on the green button :) </br>
+           => READ A POST : Click on the title of the post to read a post </br>
+           => EDIT A POST : Click on the pen icon to edit a post</br>
+           => DELETE A POST : Click on the red garbage icon to delete a post</br></br></br>
+
+        <em> => This website was brought to you by : an angsty student, a handy tutorial and some mozilla documentation</em>
+      </p>
+     </div>
+     <div class="col-md-2 col-xs-1 col-sm-1">
+      <br/>
+
+               <a href="{% url 'post' %}">
+                 <button type="button" class="btn btn-success">
+                   <span class="glyphicon glyphicon-plus"></span>
+                 </button>
+               </a>
+     </div>
+    </div>
+    <br/>
+    {% else %}
+     <div class="row">
+        <div class="col-md-10  col-xs-10 col-sm-10">
+          <p>You need to log in to add new posts ! (btw, the id is 'root' and the password is 'rootroot' :) )</p>
+        </div>
+     </div>
+   {% endif %}
+
  {% for post in post_list %}
   <div class="row"> 
    <div class="col-md-1 col-xs-1 col-sm-1"></div> 
