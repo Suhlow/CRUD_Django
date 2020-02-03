@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Crud_tp'
+    'Crud_tp',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
